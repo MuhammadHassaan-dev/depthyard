@@ -1,0 +1,28 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "depthyard",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2024-12-30",
+  "compatibility_flags": [
+    "nodejs_compat",
+    "global_fetch_strictly_public",
+    "no_handle_cross_request_promise_resolution"
+  ],
+  "routes": [
+    { "pattern": "depthyard.com", "custom_domain": true },
+    { "pattern": "www.depthyard.com", "custom_domain": true }
+  ],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "depthyard"
+    }
+  ],
+  "images": {
+    "binding": "IMAGES"
+  }
+}
