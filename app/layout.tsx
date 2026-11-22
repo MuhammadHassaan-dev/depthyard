@@ -20,7 +20,7 @@ const newsreader = Newsreader({
   adjustFontFallback: true,
 });
 
-const themeScript = `(function(){try{var t=localStorage.getItem("theme");var dark=t==="dark"||(t!=="light"&&window.matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.classList.toggle("dark",dark);}catch(e){}})();`;
+const themeScript = `(function(){try{var t=localStorage.getItem("theme");var dark=t==="dark";document.documentElement.classList.toggle("dark",dark);}catch(e){}})();`;
 
 const title = `${site.name} — Concrete, Gravel, Mulch, and Paint Quantities`;
 
@@ -50,10 +50,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f4f0e6" },
-    { media: "(prefers-color-scheme: dark)", color: "#141311" },
-  ],
+  themeColor: "#f4f0e6",
   width: "device-width",
   initialScale: 1,
 };

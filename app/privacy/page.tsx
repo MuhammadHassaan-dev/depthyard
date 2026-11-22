@@ -21,7 +21,7 @@ export default function PrivacyPage() {
         There is no account and no database. The calculator does not post your numbers anywhere. The explanation and the worked example are ordinary HTML.
       </p>
       <p>
-        A theme choice is written to localStorage under the key theme, on this device, after you use the theme button. Before that click, the page follows the color scheme of the device. Clearing site data removes the choice.
+        A theme choice is written to localStorage under the key theme, on this device, after you use the theme button. Before that click, the page uses the light theme. Clearing site data removes the choice.
       </p>
       {ads ? (
         <p>
