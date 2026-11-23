@@ -38,7 +38,10 @@ export function adsenseClient(): string | null {
   return value ? value : null;
 }
 
+/** AdSense display ad unit "depthyard-below". The env var can override it. */
+const defaultAdsenseSlot = "4156133665";
+
 export function adsenseSlot(): string | null {
-  const value = process.env.NEXT_PUBLIC_ADSENSE_SLOT?.trim();
+  const value = process.env.NEXT_PUBLIC_ADSENSE_SLOT?.trim() || defaultAdsenseSlot;
   return value ? value : null;
 }
