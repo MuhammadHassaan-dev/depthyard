@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import type { CalculatorPage } from "@/content/pages";
 import { AdSlot } from "@/components/layout/AdSlot";
 import { calculatorJsonLd } from "@/lib/seo";
-import { adsenseClient } from "@/lib/site";
+import { adsenseClient, adsenseSlot } from "@/lib/site";
 import { DefaultNote } from "./DefaultNote";
 import { FaqList } from "./FaqList";
 import { FormulaBlock } from "./FormulaBlock";
@@ -12,7 +12,7 @@ import { RelatedLinks } from "./RelatedLinks";
 import { WorkedExample } from "./WorkedExample";
 
 export function QuantityPage({ page, children }: { page: CalculatorPage; children: ReactNode }) {
-  const ads = Boolean(adsenseClient());
+  const ads = Boolean(adsenseClient() && adsenseSlot());
 
   return (
     <article className="shell py-8 sm:py-12">

@@ -3,13 +3,13 @@ import { adsenseClient, adsenseSlot } from "@/lib/site";
 /**
  * Sits under the tool, or beside the prose on a large screen.
  * It is never rendered next to an input or inside the result.
- * With no client id the slot is absent and takes no space.
+ * With no client id or no ad unit slot, it is absent and takes no space.
  */
 export function AdSlot({ placement }: { placement: "below" | "rail" }) {
   const client = adsenseClient();
-  if (!client) return null;
-
   const slot = adsenseSlot();
+  if (!client || !slot) return null;
+
   const reserved = placement === "rail" ? "hidden min-h-[600px] lg:block" : "min-h-[280px]";
 
   return (
