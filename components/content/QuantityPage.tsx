@@ -11,7 +11,16 @@ import { PageHero } from "./PageHero";
 import { RelatedLinks } from "./RelatedLinks";
 import { WorkedExample } from "./WorkedExample";
 
-export function QuantityPage({ page, children }: { page: CalculatorPage; children: ReactNode }) {
+export function QuantityPage({
+  page,
+  children,
+  after,
+}: {
+  page: CalculatorPage;
+  children: ReactNode;
+  /** Extra sections printed after the related tools, such as a list of common sizes. */
+  after?: ReactNode;
+}) {
   const ads = Boolean(adsenseClient() && adsenseSlot());
 
   return (
@@ -34,6 +43,7 @@ export function QuantityPage({ page, children }: { page: CalculatorPage; childre
           <WorkedExample paragraphs={page.example.paragraphs} />
           <FaqList faqs={page.faqs} />
           <RelatedLinks links={page.related} />
+          {after}
           <DefaultNote note={page.defaultNote} />
         </div>
         {ads ? <AdSlot placement="rail" /> : null}

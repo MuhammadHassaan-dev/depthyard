@@ -250,6 +250,16 @@ Slab, pad, and bag pages keep the concrete formula and change the story:
 
 Do not add `/concrete-calculator-dallas` or a URL per thickness. A thickness is an input.
 
+### Size pages
+
+Common footprints get their own page under the calculator that owns them, for queries like "how much concrete for a 12x12 slab":
+
+- `/concrete-slab-calculator/[size]`: 10x12, 12x12, 10x20, 20x20, 24x24, 30x40
+- `/gravel-calculator/[size]`: 10x10, 12x20, 10x50, 20x50
+- `/mulch-calculator/[size]`: 4x8, 3x20, 10x10, 6x30
+
+The list lives in `content/sizes.ts`. Each page presets the calculator to its size, prints a table across depths (the thickness stays an input, so depths are rows, not URLs), and writes its example and FAQs from the same figure functions as the tool. `tests/sizes.test.ts` holds them to 400–700 words and checks every printed figure. Sizes the main pages already work (the 10x10 slab, the 12x16 pad) are not repeated. Any other size goes through the main calculator; add a size page only for a footprint people search for by name.
+
 ## Page template
 
 Every calculator URL, top to bottom:

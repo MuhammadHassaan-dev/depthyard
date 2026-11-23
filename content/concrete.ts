@@ -45,7 +45,7 @@ const landing60 = bagsForYield(landing.orderCubicFeet, concreteBag60.value);
 const landing40 = bagsForYield(landing.orderCubicFeet, concreteBag40.value);
 const yieldText = formatDefault(concreteBag80.value);
 
-function concreteNote(opening: string): DefaultNote {
+export function concreteNote(opening: string): DefaultNote {
   return {
     before: `${opening} The yield starts from the approximate figure on the`,
     sourceName: concreteBag80.sourceName,
