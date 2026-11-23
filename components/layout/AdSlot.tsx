@@ -1,4 +1,5 @@
 import { adsenseClient, adsenseSlot } from "@/lib/site";
+import { AdUnit } from "./AdUnit";
 
 /**
  * Sits under the tool, or beside the prose on a large screen.
@@ -16,23 +17,7 @@ export function AdSlot({ placement }: { placement: "below" | "rail" }) {
     <aside aria-label="Advertisement" className={placement === "below" ? "mx-auto mt-8 max-w-5xl" : undefined}>
       <div className={`${reserved} rounded-xl border border-dashed border-line bg-field p-3`}>
         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">Advertisement</p>
-        {slot ? (
-          <>
-            <ins
-              className="adsbygoogle mt-2 block"
-              style={{ display: "block" }}
-              data-ad-client={client}
-              data-ad-slot={slot}
-              data-ad-format="auto"
-              data-full-width-responsive="true"
-            />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: "(window.adsbygoogle = window.adsbygoogle || []).push({});",
-              }}
-            />
-          </>
-        ) : null}
+        <AdUnit client={client} slot={slot} />
       </div>
     </aside>
   );
